@@ -20,9 +20,14 @@ const insertHotel = (hotel: Hotel ) => {
 
 
 const updateHotel = (hotel: Hotel) => {
-    return getManager().query('Update hotel set naziv = ?, godina_gradnje = ? where hid = ?', []);
+    return getManager().query('Update hotel set naziv = ?, godina_gradnje = ? where hid = ?',
+                                                                                [hotel.name, hotel.year, hotel.hid]);
+}
+
+const deleteHotel = (hid: number) => {
+    return getManager().query(`delete from hotel where hid = ?`,[hid]);
 }
 
 
 
-export default { getAllHotels, getHotelByID, insertHotel}
+export default { getAllHotels, getHotelByID, insertHotel, updateHotel, deleteHotel }

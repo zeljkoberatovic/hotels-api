@@ -16,8 +16,8 @@ const router: Router = Router();
 router.get('/hotels', hotelController.getAllHotels); //funkciju ne pozivamo samo je prosledjujemo kontroleru
 router.get('/hotels/:hid', hotelController.getHotelByID);   //hid-id
 router.post('/hotels', hotelController.insertHotel);
-router.put('/hotels/:id', hotelController.updateHotel);
-router.delete('/hotels/:id',hotelController.deleteHotel);
+router.put('/hotels/:hid', hotelController.updateHotel);
+router.delete('/hotels/:hid',hotelController.deleteHotel);
 
 
 
