@@ -4,11 +4,12 @@ import { createConnection } from 'typeorm';  //povezivanje sa bazom
 import dbConfig  from './common/db-config';
 // import router
 import hotelRouter from './routing/hotel-routing';  //posto je nas modul ovako ga upisujemo
-
+import roomRouter from './routing/room-routing';
 const app: Application = express();   //nasa glavna promljeniva
 app.use(express.json());//pruzamo podrsku serveru da moze da koristi json podatke,odmah posle glavne promljenjive je stavljamo
 
-app.use(hotelRouter);
+app.use('/hotels',hotelRouter);
+app.use('/rooms',roomRouter);
 
 createConnection(dbConfig)
 .then(connection => {
